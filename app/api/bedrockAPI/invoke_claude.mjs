@@ -3,6 +3,10 @@
 
 import { fileURLToPath } from "url";
 
+import { config } from "dotenv";
+
+config();
+
 import {
   BedrockRuntimeClient,
   InvokeModelCommand,
@@ -11,10 +15,10 @@ import {
 export const invokeModel = async (prompt, modelId = "anthropic.claude-v2") => {
   // Create a new Bedrock Runtime client instance.
   const client = new BedrockRuntimeClient({
-    region: "us-east-1",
+    region: process.env.AWS_REGION,
     credentials: {
-      accessKeyId: "AKIA37NZM2NM3XJGUPOE",
-      secretAccessKey: "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",
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     },
   });
 
@@ -51,10 +55,10 @@ export const invokeTextCompletionsApi = async (
 ) => {
   // Create a new Bedrock Runtime client instance.
   const client = new BedrockRuntimeClient({
-    region: "us-east-1",
+    region: process.env.AWS_REGION,
     credentials: {
-      accessKeyId: "AKIA37NZM2NM3XJGUPOE",
-      secretAccessKey: "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",
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     },
   });
 
