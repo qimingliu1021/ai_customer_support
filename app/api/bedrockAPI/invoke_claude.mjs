@@ -12,13 +12,15 @@ import {
   InvokeModelCommand,
 } from "@aws-sdk/client-bedrock-runtime";
 
+// *********************  separartely set up keys. copy and paste key here to run ******************
 export const invokeModel = async (prompt, modelId = "anthropic.claude-v2") => {
   // Create a new Bedrock Runtime client instance.
+
   const client = new BedrockRuntimeClient({
-    region: process.env.AWS_REGION,
+    region: "us-east-1",
     credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      accessKeyId: "AKIA37NZM2NM3XJGUPOE",
+      secretAccessKey: "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",
     },
   });
 
@@ -55,10 +57,10 @@ export const invokeTextCompletionsApi = async (
 ) => {
   // Create a new Bedrock Runtime client instance.
   const client = new BedrockRuntimeClient({
-    region: process.env.AWS_REGION,
+    region: "us-east-1",
     credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      accessKeyId: "AKIA37NZM2NM3XJGUPOE",
+      secretAccessKey: "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",
     },
   });
 
