@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AWS API key
+app/api/bedRockAPI/converStream.mjs
+app/api/bedRockAPI/invoke_claude.mjs
