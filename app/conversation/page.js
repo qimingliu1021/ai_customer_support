@@ -10,6 +10,7 @@ import * as React from "react";
 import { red } from "@mui/material/colors";
 import { width } from "@mui/system";
 import { margin } from "@mui/system";
+import { border } from "@mui/system";
 
 export default function Conversation() {
   const [apiEndPoint, setApiEndPoint] = useState("api/chat");
@@ -102,37 +103,52 @@ export default function Conversation() {
         justifyContent="center"
         alignItems="center"
       >
-        <Box sx={{ bgcolor: "white", width: "50 rem", margin: "2 rem" }}>
-          <Typography>Model Now using now:</Typography>
+        <Box
+          sx={{
+            bgcolor: "white",
+            width: "250px",
+            height: "700px",
+            margin: "2 rem",
+            borderRadius: 7,
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center", // horizontal
+          }}
+        >
+          <Typography sx={{ mt: "50px" }}>Model Now using now:</Typography>
           <Button onClick={changeModel}>chang the model</Button>
         </Box>
         <Stack
           direction="column"
           spacing={2}
-          width="500px"
+          width="1000px"
           height="700px"
-          border="1px solid black"
+          sx={{
+            backgroundColor: "#ffffff",
+            borderRadius: 7,
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center", // horizontal
+          }}
           p={2}
         >
           <Stack
             direction="column"
             spacing={2}
-            border="1px solid blue"
             flexGrow={1}
             maxHeight="100%"
             overflow="auto"
-            justifyContent={
-              message.role === "assistant" ? "flex.start" : "flex.end"
-            }
+            sx={{ borderRadius: 7, backgroundColor: "#93C7EF" }}
+            // justifyContent={
+            //   message.role === "assistant" ? "flex.start" : "flex.end"
+            // }
           >
             {messages.map((message, index) => (
               <Box
                 key={index}
-                bgcolor={
-                  message.role === "assistant"
-                    ? "primary.main"
-                    : "secondary.main"
-                }
+                bgcolor={"primary.main"}
                 color="white"
                 borderRadius={16}
                 p={2}
@@ -141,17 +157,31 @@ export default function Conversation() {
               </Box>
             ))}
           </Stack>
-          <Stack direction={"row"} spacing={2}>
+          <Box sx={{ display: "flex", gap: "20px" }}>
             <TextField
               label="Message"
               fullWidth
               value={message}
+              sx={{
+                backgroundColor: "#93C7EF",
+                "& .MuiInputBase-input": {
+                  color: "white", // Set text color to white
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    border: "none", // Remove the border
+                  },
+                },
+                borderRadius: 4,
+              }}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <Button variant="contained" onClick={sendMessage}>
+            <Button
+              variant="contained"
+              onClick={sendMessage}
+              sx={{ borderRadius: 4 }}
+            >
               Send
             </Button>
-          </Stack>
+          </Box>
         </Stack>
       </Box>
     </Box>
