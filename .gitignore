@@ -36,5 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # AWS API key
-app/api/bedRockAPI/converStream.mjs
-app/api/bedRockAPI/invoke_claude.mjs
+# app/api/bedRockAPI/converStream.mjs
+converStream.mjs
+# app/api/bedRockAPI/invoke_claude.mjs
+invoke_claude.mjs
